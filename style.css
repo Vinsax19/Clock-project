@@ -1,6 +1,7 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
@@ -10,24 +11,6 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.switch-container{
-    width: 4rem;
-    border-radius: 25px;
-    padding: 0.1rem;
-    height: 2rem;
-    background-color: #fff;
-    position: absolute;
-    top: 2rem;
-}
-
-.switch{
-    width: 4rem;
-    height: 99%;
-    border-radius: 50%;
-    background-color: hsl(217, 54%, 11%);
-    transition: 0.2s ease-in-out;
 }
 
 .clock-container{
@@ -64,7 +47,7 @@ body{
     
 }
 
-.minutes{
+.min{
     height: 4rem;
     width: 0.2rem;
     background-color: white;
@@ -72,4 +55,98 @@ body{
     top: 8.5rem;
     z-index: 90;
     transform-origin: bottom;
+}
+
+.tick{
+    height: 9rem;
+    width: 0.2rem;
+    background-color: #01fe87;
+    position: absolute;
+    top: 3.5rem;
+    z-index: 90;
+    transform-origin: bottom;
+    transform: rotateZ(14deg);
+
+}
+
+
+
+.day-container{
+    position: absolute;
+    height: 10rem;
+    width: 50rem;
+    bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+/* span:hover{
+    color: rgba(255, 255, 255, 0.839);
+    transition-duration: 1000ms;
+    transition-timing-function: ease-in-out;
+    font-size: 2rem;
+    
+
+} */
+
+
+@media (max-width:700px) {
+    .switch-container{
+        position: absolute;
+        top: 2rem;
+        left: 0;
+    
+    }
+
+    .clock-container{
+        width: 100vw;
+    }
+    
+}
+
+h1{
+    position: relative;
+    font-size: 4rem;
+    color: #252839;
+    -webkit-text-stroke: 0.3vw #329d52;
+    
+}
+
+h1::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #01fe87;
+    -webkit-text-stroke: #383d52;
+    border-right: 2px solid #01fe87;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+
+}
+
+@keyframes animate{
+    0%{
+        width: 0;
+    }
+    25%{
+        width: 25%;
+
+    }
+    50%{
+        width: 50%;
+
+    }
+    75%{
+        width: 75%;
+
+    }
+    100%{
+        width: 100%;
+
+    }
+    
 }
